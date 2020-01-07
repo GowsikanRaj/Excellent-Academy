@@ -8,7 +8,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <style>
     body {
-        background-color: beige
+        background-color: #e9ecef
     }
 </style>
 <body>
@@ -91,7 +91,7 @@
                         <div class="col text-right">
                             <a href="javascript:void(0);" id="addStudent">Add Another Student</a>
                         </div>
-                    </div>                 
+                    </div>
                     <div class="mt-3" id="student" name="student" style="border:1px solid black; padding:10px">
                         <div class="row">
                             <div class="col-12" style="text-align:center">
@@ -108,7 +108,7 @@
                             <div class="col-md-3">
                                 <label>Grade:</label>
                                 <div class="input-group col-12">
-                                    <select id="form.student[0].grade" name="form.student[0].grade" size="14" class="form-control" >
+                                    <select id="form.student[0].grade" name="form.student[0].grade" size="14" class="form-control">
                                         <option value="JK">JK</option>
                                         <option value="SK">SK</option>
                                         <option value="1">1</option>
@@ -130,7 +130,7 @@
                             <div class="col-md-3">
                                 <label>Subjects</label>
                                 <div class="input-group col-12">
-                                    <select id="form.student[0].subject" name="form.student[0].subject" multiple class="form-control" >
+                                    <select id="form.student[0].subject" name="form.student[0].subject" multiple class="form-control">
                                         <option value="English">English</option>
                                         <option value="French">French</option>
                                         <option value="Math">Math</option>
@@ -141,7 +141,7 @@
                             <div class="col-md-3">
                                 <label>Days</label>
                                 <div class="input-group col-12">
-                                    <select id="form.student[0].days" name="form.student[0].days" multiple size="7" class="form-control" >
+                                    <select id="form.student[0].days" name="form.student[0].days" multiple size="7" class="form-control">
                                         <option value="Sunday">Sunday</option>
                                         <option value="Monday">Monday</option>
                                         <option value="Tuesday">Tuesday</option>
@@ -175,7 +175,7 @@
                     <div class="col-md-8">
                         <label>Signature:</label>
                         <div class="input-group col-12">
-                            <input type="text" id="form.signature" name="form.signature" class="form-control"  />
+                            <input type="text" id="form.signature" name="form.signature" class="form-control" />
                         </div>
                     </div>
                 </div>
@@ -203,28 +203,30 @@
                     </div>
                 </div>
                 <div class="row mt-3">
-                    <div class="col-1 text-right">
-                        <input class="btn btn-success form-control" type="submit" value="Save" asp-page-handler="Submit"/>
+                    <div class="col-12 text-right" s>
+                        <input class="btn btn-success form-control" type="submit" value="Save" asp-page-handler="Submit" style="width:60px" />
                     </div>
                 </div>
             </div>
         </form>
     </div>
 </body>
-<footer>
+<div class="container">
     <hr style="height:1px;border:none;color:#333;background-color:#333;">
-    <div class="row" style="padding-left:10px; font-size: 18px; font-family: 'Times New Roman'">
+    <div class="row" style="padding-left:10px; font-size: 18px; font-family: 'Times New Roman'; text-align:center">
         1080 Tapscott Road #5 and #10, Scarbrough, ONT, M1X 1E7. Tel: 416-285-7775, Cell: 416-833-4141
     </div>
-</footer>
+</div>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link rel="stylesheet" href="/resources/demos/style.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
     var d = new Date();
+    const monthNames = ["January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+    ];
     var currMonth = d.getMonth();
     var currYear = d.getFullYear();
     var startDate = new Date(currYear, currMonth, 1);
@@ -235,13 +237,12 @@
     $(document).ready(function () {
         $faStudent = 1;
         $('#addStudent').click(function () {
-            $('#student').clone().attr('id', 'student' + $faStudent).insertAfter('#students:last')
+            $('#student').clone().attr('id', 'student' + $faStudent).appendTo('#students')
+                .find("*[id]")
                 .each(function () {
                     var id = this.id || "";
-                    if (id != "") {
-                        $(this).attr("name", (name.substring(0, 13) + $faStudent + name.substring(14, name.length)));
-                        $(this).attr("id", (id.substring(0, 13) + $faStudent + id.substring(14, id.length)));
-                    }
+                    $(this).attr("name", (name.substring(0, 13) + $faStudent + name.substring(14, name.length)));
+                    $(this).attr("id", (id.substring(0, 13) + $faStudent + id.substring(14, id.length)));
                 }).clone().end();
             $faStudent += 1;
         });
