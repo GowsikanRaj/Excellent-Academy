@@ -3,15 +3,11 @@
 @{
     ViewData["Title"] = "Excellent Academy";
 }
+<link rel="stylesheet" href="~/css/Form.css" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<style>
-    body {
-        background-color: #e9ecef
-    }
-</style>
-<body>
+<body class="body">
     <div class="container">
         <form method="post">
             <div>
@@ -19,34 +15,33 @@
                     <img src="Capture.jpg" style="width:200px; height:60px" />
                 </div>
                 <div class="row mt-2">
-                    <div class="col-11" style="text-align:center; font-weight: bold; font-size: 20px; font-family: 'Times New Roman';text-decoration: underline">
+                    <div class="col-4"></div>
+                    <div class="col-4" style="text-align: center; font-weight: bold; font-size: 20px; font-family: sans-serif; text-decoration: underline">
                         Student Application Form
                     </div>
-                    <div class="text-right" style="font-weight: bold; font-size: 20px; font-family: 'Times New Roman';">
-                        2019/2020
-                    </div>
+                    <div class="col-4" style="text-align:right; font-weight: bold; font-size: 20px; font-family: sans-serif; text-decoration: underline">2019/2020</div>
                 </div>
                 <div class="row mt-5">
                     <div class="col-md-3">
-                        <label>First Name:</label>
+                        <label class="label_div">First Name:</label>
                         <div class="input-group col-12">
                             <input type="text" id="form.firstname" name="form.firstname" class="form-control" />
                         </div>
                     </div>
                     <div class="col-md-3">
-                        <label>Last Name:</label>
+                        <label class="label_div">Last Name:</label>
                         <div class="input-group col-12">
                             <input type="text" id="form.lastname" name="form.lastname" class="form-control" />
                         </div>
                     </div>
                     <div class="col-md-3">
-                        <label>Address:</label>
+                        <label class="label_div">Address:</label>
                         <div class="input-group col-12">
                             <input type="text" id="form.address" name="form.address" class="form-control" />
                         </div>
                     </div>
                     <div class="col-md-3">
-                        <label>City:</label>
+                        <label class="label_div">City:</label>
                         <div class="input-group col-12">
                             <input type="text" id="form.city" name="form.city" class="form-control" />
                         </div>
@@ -54,25 +49,25 @@
                 </div>
                 <div class="row mt-3">
                     <div class="col-md-3">
-                        <label>Telephone Number:</label>
+                        <label class="label_div">Telephone Number:</label>
                         <div class="input-group col-12">
                             <input type="tel" id="form.phone" name="form.phone" pattern="[0-9]{10}" class="form-control" />
                         </div>
                     </div>
                     <div class="col-md-3">
-                        <label>Cell-Phone Number:</label>
+                        <label class="label_div">Cell-Phone Number:</label>
                         <div class="input-group col-12">
                             <input type="tel" id="form.cell" name="form.cell" pattern="[0-9]{10}" class="form-control" />
                         </div>
                     </div>
                     <div class="col-md-3">
-                        <label>Emergency Telephone Number:</label>
+                        <label class="label_div">Emergency Telephone Number:</label>
                         <div class="input-group col-12">
                             <input type="tel" id="form.emergency" name="form.emergency" pattern="[0-9]{10}" class="form-control" />
                         </div>
                     </div>
                     <div class="col-md-3">
-                        <label>E-Mail:</label>
+                        <label class="label_div">E-Mail:</label>
                         <div class="input-group col-12">
                             <input type="text" id="form.email" name="form.email" class="form-control" />
                         </div>
@@ -80,7 +75,7 @@
                 </div>
                 <div class="row mt-3">
                     <div class="col-md-3">
-                        <label>Starting Date:</label>
+                        <label class="label_div">Starting Date:</label>
                         <div class="input-group col-12">
                             <input type="text" id="form.startingdate" name="form.startingdate" value="@DateTime.Now.ToString("MMMM dd, yyyy")" class="form-control" />
                         </div>
@@ -95,18 +90,18 @@
                     <div class="mt-3" id="student" name="student" style="border:1px solid black; padding:10px">
                         <div class="row">
                             <div class="col-12" style="text-align:center">
-                                <label>Student</label>
+                                <label class="label_div">Student</label>
                             </div>
                         </div>
                         <div class="row mt-3" style="text-align:center">
                             <div class="col-md-3">
-                                <label>First Name:</label>
+                                <label class="label_div">First Name:</label>
                                 <div class="input-group col-12">
                                     <input type="text" id="form.student[0].studentname" name="form.student[0].studentname" class="form-control" />
                                 </div>
                             </div>
                             <div class="col-md-3">
-                                <label>Grade:</label>
+                                <label class="label_div">Grade:</label>
                                 <div class="input-group col-12">
                                     <select id="form.student[0].grade" name="form.student[0].grade" size="14" class="form-control">
                                         <option value="JK">JK</option>
@@ -128,28 +123,54 @@
                                 </div>
                             </div>
                             <div class="col-md-3">
-                                <label>Subjects</label>
+                                <label class="label_div">Subjects</label>
                                 <div class="input-group col-12">
-                                    <select id="form.student[0].subject" name="form.student[0].subject" multiple class="form-control">
-                                        <option value="English">English</option>
-                                        <option value="French">French</option>
-                                        <option value="Math">Math</option>
-                                        <option value="Science">Science</option>
-                                    </select>
+                                    English <input type="checkbox" id="form.student[0].subject[0].english" name="form.student[0].subject[0].english" value="English">
+                                    French <input type="checkbox" id="form.student[0].subject[0].french" name="form.student[0].subject[0].french" value="French">
+                                    Math <input type="checkbox" id="form.student[0].subject[0].math" name="form.student[0].subject[0].math" value="Math">
+                                    Science <input type="checkbox" id="form.student[0].subject[0].science" name="form.student[0].subject[0].science" value="Science"> 
                                 </div>
                             </div>
                             <div class="col-md-3">
-                                <label>Days</label>
+                                <label class="label_div">Days</label>
                                 <div class="input-group col-12">
-                                    <select id="form.student[0].days" name="form.student[0].days" multiple size="7" class="form-control">
-                                        <option value="Sunday">Sunday</option>
-                                        <option value="Monday">Monday</option>
-                                        <option value="Tuesday">Tuesday</option>
-                                        <option value="Wednesday">Wednesday</option>
-                                        <option value="Thursday">Thursday</option>
-                                        <option value="Friday">Friday</option>
-                                        <option value="Saturday">Saturday</option>
-                                    </select>
+                                    <table class="table">
+                                        <tr>
+                                            <td style="border:none; padding:2px">
+                                                Sunday <input type="checkbox" id="form.student[0].day[0].sunday" name="form.student[0].days[0].sunday" value="Sunday" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border:none; padding:2px">
+                                                Monday <input type="checkbox" id="form.student[0].day[0].monday" name="form.student[0].days[0].monday" value="Monday" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border:none; padding:2px">
+                                                Tuesday <input type="checkbox" id="form.student[0].day[0].tuesday" name="form.student[0].days[0].tuesday" value="Tuesday" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border:none; padding:2px">
+                                                Wednesday <input type="checkbox" id="form.student[0].day[0].wednesday" name="form.student[0].days[0].wednesday" value="Wednesday" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border:none; padding:2px">
+                                                Thursday <input type="checkbox" id="form.student[0].day[0].thursday" name="form.student[0].days[0].thursday" value="Thursday" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border:none; padding:2px">
+                                                Friday <input type="checkbox" id="form.student[0].day[0].friday" name="form.student[0].days[0].friday" value="Friday" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border:none; padding:2px">
+                                                Saturday <input type="checkbox" id="form.student[0].day[0].saturday" name="form.student[0].days[0].saturday" value="Saturday" />
+                                            </td>
+                                        </tr>
+                                    </table>
                                 </div>
                             </div>
                         </div>
@@ -167,13 +188,13 @@
                 </div>
                 <div class="row mt-5">
                     <div class="col-md-4">
-                        <label>Date:</label>
+                        <label class="label_div">Date:</label>
                         <div class="input-group col-12">
                             <input type="text" id="form.date" name="form.date" value="@DateTime.Now.ToString("MMMM dd, yyyy")" class="form-control" />
                         </div>
                     </div>
                     <div class="col-md-8">
-                        <label>Signature:</label>
+                        <label class="label_div">Signature:</label>
                         <div class="input-group col-12">
                             <input type="text" id="form.signature" name="form.signature" class="form-control" />
                         </div>
@@ -187,7 +208,7 @@
                     </div>
                     <div class="row mt-2">
                         <div class="col-12">
-                            <label>Fees:</label>
+                            <label class="label_div">Fees:</label>
                             <div class="input-group col-12">
                                 <input type="text" id="form.fees" name="form.fees" class="form-control" />
                             </div>
@@ -195,7 +216,7 @@
                     </div>
                     <div class="row mt-2">
                         <div class="col-12">
-                            <label>Payment Day:</label>
+                            <label class="label_div">Payment Day:</label>
                             <div class="input-group col-12">
                                 <input type="text" id="form.paymentday" name="form.paymentday" class="payment form-control">
                             </div>
@@ -204,7 +225,7 @@
                 </div>
                 <div class="row mt-3">
                     <div class="col-12 text-right" s>
-                        <input class="btn btn-success form-control" type="submit" value="Save" asp-page-handler="Submit" style="width:60px" />
+                        <input class="btn btn-success form-control" type="submit" value="Save" asp-page-handler="Submit" style="width: 60px" />
                     </div>
                 </div>
             </div>

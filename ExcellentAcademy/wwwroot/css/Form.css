@@ -1,0 +1,15 @@
+﻿.body {
+    background-color: #dff6f6;
+    font-family: sans-serif;
+}
+
+.label_div {
+    font-family: sans-serif;
+    color: black;
+    font-size: 14px;
+}
+
+.table > tbody > tr > td {
+    border: none;
+    padding: 2px;
+}
