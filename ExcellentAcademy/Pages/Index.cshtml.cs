@@ -14,19 +14,9 @@ namespace ExcellentAcademy.Pages
         public void OnGet()
         {
         }
-        public IActionResult OnPostSubmit(Form form)
+        public IActionResult OnPostSubmit(Form form, List<Student> student)
         {
-            string days = "";
-            foreach (var day in form.student.ElementAt(0).Days)
-            {
-                if(day != null)
-                {
-                    days += day;
-                }
-            }
-            
             return RedirectToPage("./Success");
         }
-
     }
 }
