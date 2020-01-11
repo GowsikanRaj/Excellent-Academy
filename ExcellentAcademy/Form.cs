@@ -30,8 +30,8 @@ namespace ExcellentAcademy
         public string Grade { get; set; }
         public string Subject { get; set; }
         public string Days { get; set; }
-        public string Starttime { get; set; }
-        public string Endtime { get; set; }
+        public DateTime Starttime { get; set; }
+        public DateTime Endtime { get; set; }
 
     }
 }
