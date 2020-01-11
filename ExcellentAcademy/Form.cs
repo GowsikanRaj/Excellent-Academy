@@ -15,18 +15,23 @@ namespace ExcellentAcademy
         public string cell { get; set; }
         public string emergency { get; set; }
         public string email { get; set; }
-        public DateTime startingdate { get; set; }     
+        public DateTime startingdate { get; set; }
         public DateTime date { get; set; }
         public string signature { get; set; }
         public int fees { get; set; }
         public DateTime paymentday { get; set; }
-        public List<Student> Student { get; set; }
+        public List<student> student { get; set; }
     }
-    public class Student
+
+    public class student
     {
-        public string Studentname { get; set; }
+        public string Firstname { get; set; }
+        public string Lastname { get; set; }
         public string Grade { get; set; }
         public string Subject { get; set; }
         public string Days { get; set; }
+        public string Starttime { get; set; }
+        public string Endtime { get; set; }
+
     }
 }
