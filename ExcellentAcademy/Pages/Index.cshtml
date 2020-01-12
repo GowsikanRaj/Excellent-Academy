@@ -3,7 +3,29 @@
 @{
     ViewData["Title"] = "Excellent Academy";
 }
-<link rel="stylesheet" href="~/css/Form.css" />
+<style>
+    .body {
+        background-color: white;
+        font-family: sans-serif;
+    }
+
+    .label_div {
+        font-family: sans-serif;
+        color: black;
+        font-size: 14px;
+        padding:0px 2px;
+    }
+
+    .table > tbody > tr > td {
+        border: none;
+        padding: 2px;
+    }
+
+    input {
+        font-family: sans-serif;
+        font-size: 14px;
+    }
+</style>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <body class="body">
     <form method="post">
@@ -94,27 +116,21 @@
                     </div>
                     <div class="row mt-3" style="text-align:center">
                         <div class="col-md-3">
-                            <div class="row">
-                                <div class="col-12">
-                                    <label class="label_div">First Name:</label>
-                                    <div class="input-group col-12">
-                                        <input type="text" id="form.students[0].Firstname" name="form.students[0].Firstname" class="form-control" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mt-2">
-                                <div class="col-12">
-                                    <label class="label_div">Last Name:</label>
-                                    <div class="input-group col-12">
-                                        <input type="text" id="form.students[0].Lastname" name="form.students[0].Lastname" class="form-control" />
-                                    </div>
-                                </div>
+                            <label class="label_div">First Name:</label>
+                            <div class="input-group col-12">
+                                <input type="text" id="form.students[0].Firstname" name="form.students[0].Firstname" class="form-control" />
                             </div>
                         </div>
                         <div class="col-md-3">
+                            <label class="label_div">Last Name:</label>
+                            <div class="input-group col-12">
+                                <input type="text" id="form.students[0].Lastname" name="form.students[0].Lastname" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-2">
                             <label class="label_div">Grade:</label>
                             <div class="input-group col-12">
-                                <select id="form.students[0].grade" name="form.students[0].grade" size="1" class="form-control">
+                                <select id="form.students[0].grade" name="form.students[0].grade" class="form-control">
                                     <option value="JK">JK</option>
                                     <option value="SK">SK</option>
                                     <option value="1">1</option>
@@ -129,11 +145,10 @@
                                     <option value="10">10</option>
                                     <option value="11">11</option>
                                     <option value="12">12</option>
-
                                 </select>
                             </div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <label class="label_div">Subjects</label>
                             <div class="input-group col-12">
                                 <select id="form.students[0].subject" name="form.students[0].subject" class="form-control">
@@ -144,7 +159,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <label class="label_div">Days</label>
                             <div class="input-group col-12">
                                 <select id="form.students[0].days" name="form.students[0].days" class="form-control">
@@ -160,15 +175,15 @@
                         </div>
                     </div>
                     <div class="row mt-3">
-                        <div class="col-3">
+                        <div class="col-md-3">
                             <label class="label_div">Start Time</label>
-                            <div class="input-group">
+                            <div class="input-group col-12">
                                 <input type="time" id="form.students[0].starttime" name="form.students[0].starttime" min="16:00" max="21:00" value="16:00" class="form-control" />
                             </div>
                         </div>
-                        <div class="col-3">
+                        <div class="col-md-3">
                             <label class="label_div">End Time</label>
-                            <div class="input-group">
+                            <div class="input-group col-12">
                                 <input type="time" id="students[0].endtime" name="students[0].endtime" min="16:00" max="21:00" value="18:00" class="form-control" />
                             </div>
                         </div>
@@ -263,7 +278,7 @@
                 .each(function () {
                     var id = this.id || "";
                     if (id != "") {
-                        $(this).attr("name", (name.substring(0, 14) + $Student + name.substring(15, name.length)));
+                        $(this).attr("name", (id.substring(0, 14) + $Student + id.substring(15, id.length)));
                         $(this).attr("id", (id.substring(0, 14) + $Student + id.substring(15, id.length)))
                     };
                 }).clone().end();
