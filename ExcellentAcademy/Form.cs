@@ -20,7 +20,7 @@ namespace ExcellentAcademy
         public string signature { get; set; }
         public int fees { get; set; }
         public DateTime paymentday { get; set; }
-        public List<student> student { get; set; }
+        public List<student> students { get; set; }
     }
 
     public class student

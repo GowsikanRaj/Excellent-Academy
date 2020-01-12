@@ -6,238 +6,237 @@
 <link rel="stylesheet" href="~/css/Form.css" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <body class="body">
-    <div class="container">
-        <form method="post">
-            <div>
-                <div class="row">
-                    <img src="Capture.jpg" style="width:200px; height:60px" />
+    <form method="post">
+        <div class="container">
+            <div class="row">
+                <img src="Capture.jpg" style="width:200px; height:60px; padding:0px 15px" />
+            </div>
+            <div class="row mt-3">
+                <div class="col-4"></div>
+                <div class="col-4" style="text-align:center; font-weight: bold; font-size: 20px; font-family: sans-serif; text-decoration: underline">
+                    Student Application Form
                 </div>
-                <div class="row mt-2">
-                    <div class="col-11" style="text-align:center; font-weight: bold; font-size: 20px; font-family: 'Times New Roman';text-decoration: underline">
-                        Student Application Form
-                    </div>
-                    <div class="text-right" style="font-weight: bold; font-size: 20px; font-family: 'Times New Roman';">
-                        2019/2020
-                    </div>
+                <div class="col-4" style="text-align:right; font-weight: bold; font-size: 20px; font-family: sans-serif; text-decoration: underline">
+                    2019/2020
                 </div>
-                <div class="row mt-5">
-                    <div class="col-md-3">
-                        <label class="label_div">First Name:</label>
-                        <div class="input-group col-12">
-                            <input type="text" id="form.firstname" name="form.firstname" class="form-control" />
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <label class="label_div">Last Name:</label>
-                        <div class="input-group col-12">
-                            <input type="text" id="form.lastname" name="form.lastname" class="form-control" />
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <label class="label_div">Address:</label>
-                        <div class="input-group col-12">
-                            <input type="text" id="form.address" name="form.address" class="form-control" />
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <label class="label_div">City:</label>
-                        <div class="input-group col-12">
-                            <input type="text" id="form.city" name="form.city" class="form-control" />
-                        </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-3">
+                    <label class="label_div">First Name:</label>
+                    <div class="input-group col-12">
+                        <input type="text" id="form.firstname" name="form.firstname" class="form-control" />
                     </div>
                 </div>
-                <div class="row mt-3">
-                    <div class="col-md-3">
-                        <label class="label_div">Telephone Number:</label>
-                        <div class="input-group col-12">
-                            <input type="tel" id="form.phone" name="form.phone" pattern="[0-9]{10}" class="form-control" />
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <label class="label_div">Cell-Phone Number:</label>
-                        <div class="input-group col-12">
-                            <input type="tel" id="form.cell" name="form.cell" pattern="[0-9]{10}" class="form-control" />
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <label class="label_div">Emergency Telephone Number:</label>
-                        <div class="input-group col-12">
-                            <input type="tel" id="form.emergency" name="form.emergency" pattern="[0-9]{10}" class="form-control" />
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <label class="label_div">E-Mail:</label>
-                        <div class="input-group col-12">
-                            <input type="text" id="form.email" name="form.email" class="form-control" />
-                        </div>
+                <div class="col-md-3">
+                    <label class="label_div">Last Name:</label>
+                    <div class="input-group col-12">
+                        <input type="text" id="form.lastname" name="form.lastname" class="form-control" />
                     </div>
                 </div>
-                <div class="row mt-3">
-                    <div class="col-md-3">
-                        <label class="label_div">Starting Date:</label>
-                        <div class="input-group col-12">
-                            <input type="text" id="form.startingdate" name="form.startingdate" value="@DateTime.Now.ToString("MMMM dd, yyyy")" class="form-control" />
-                        </div>
+                <div class="col-md-3">
+                    <label class="label_div">Address:</label>
+                    <div class="input-group col-12">
+                        <input type="text" id="form.address" name="form.address" class="form-control" />
                     </div>
                 </div>
-                <div id="students" class="mt-3">
-                    <div class="row">
-                        <div class="col text-right">
-                            <a href="javascript:void(0);" id="addStudent">Add Another Student</a>
-                        </div>
-                    </div>
-                    <div class="mt-3" id="studentrow" name="studentrow" style="border:1px solid black; padding:10px">
-                        <div class="row">
-                            <div class="col-12" style="text-align:center">
-                                <label>Student</label>
-                            </div>
-                        </div>
-                        <div class="row mt-3" style="text-align:center">
-                            <div class="col-md-3">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <label class="label_div">First Name:</label>
-                                        <div class="input-group col-12">
-                                            <input type="text" id="form.student[0].firstname" name="form.student[0].firstname" class="form-control" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mt-2">
-                                    <div class="col-12">
-                                        <label class="label_div">Last Name:</label>
-                                        <div class="input-group col-12">
-                                            <input type="text" id="form.student[0].lastname" name="form.student[0].lastname" class="form-control" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <label class="label_div">Grade:</label>
-                                <div class="input-group col-12">
-                                    <select id="form.student[0].grade" name="form.student[0].grade" size="14" class="form-control">
-                                        <option value="JK">JK</option>
-                                        <option value="SK">SK</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                        <option value="10">10</option>
-                                        <option value="11">11</option>
-                                        <option value="12">12</option>
-
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <label class="label_div">Subjects</label>
-                                <div class="input-group col-12">
-                                    <select id="form.student[0].subject" name="form.student[0].subject" multiple class="form-control">
-                                        <option value="English">English</option>
-                                        <option value="French">French</option>
-                                        <option value="Math">Math</option>
-                                        <option value="Science">Science</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <label class="label_div">Days</label>
-                                <div class="input-group col-12">
-                                    <select id="form.student[0].days" name="form.student[0].days" multiple size="7" class="form-control">
-                                        <option value="Sunday">Sunday</option>
-                                        <option value="Monday">Monday</option>
-                                        <option value="Tuesday">Tuesday</option>
-                                        <option value="Wednesday">Wednesday</option>
-                                        <option value="Thursday">Thursday</option>
-                                        <option value="Friday">Friday</option>
-                                        <option value="Saturday">Saturday</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-3">
-                                <label class="label_div">Start Time</label>
-                                <div class="input-group">
-                                    <input type="time" id="form.student[0].starttime" name="form.student[0].starttime" min="16:00" max="21:00" value="16:00" class="form-control" />
-                                </div>
-                            </div>
-                            <div class="col-3">
-                                <label class="label_div">End Time</label>
-                                <div class="input-group">
-                                    <input type="time" id="form.student[0].endtime" name="form.student[0].endtime" min="16:00" max="21:00" value="18:00" class="form-control" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col-12" style="font-weight:bold; font-size: 18px; font-family: sans-serif">
-                        Tuition payments are due at the beginning of each month. THERE ARE NO CREDITS FOR STUDENT ABSCENCES.
-                        Therefore, there is no reduction in tuition for a missed lesson. Make up lessons may be avaliable at the discretion
-                        and avaliability of your teacher. Students wishing to discontinue lessons must notify our office at least one week
-                        before the next scheduled lesson. Lessons will be chargeed until notice is recieved. The same policy applies to
-                        lessons due to inclement weather.
-
-                    </div>
-                </div>
-                <div class="row mt-5">
-                    <div class="col-md-4">
-                        <label class="label_div">Date:</label>
-                        <div class="input-group col-12">
-                            <input type="text" id="form.date" name="form.date" value="@DateTime.Now.ToString("MMMM dd, yyyy")" class="form-control" />
-                        </div>
-                    </div>
-                    <div class="col-md-8">
-                        <label class="label_div">Signature:</label>
-                        <div class="input-group col-12">
-                            <input type="text" id="form.signature" name="form.signature" class="form-control" />
-                        </div>
-                    </div>
-                </div>
-                <div class="mt-5" style="border: 1px solid black; padding:5px">
-                    <div class="row mt-2">
-                        <div class="col text-left" style="text-decoration:underline; font-family: sans-serif">
-                            Office Use Only
-                        </div>
-                    </div>
-                    <div class="row mt-2">
-                        <div class="col-12">
-                            <label class="label_div">Fees:</label>
-                            <div class="input-group col-12">
-                                <input type="text" id="form.fees" name="form.fees" class="form-control" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row mt-2">
-                        <div class="col-12">
-                            <label class="label_div">Payment Day:</label>
-                            <div class="input-group col-12">
-                                <input type="text" id="form.paymentday" name="form.paymentday" class="payment form-control">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col-12 text-right">
-                        <input class="btn btn-success form-control" type="submit" value="Save" asp-page-handler="Submit" style="width:60px; font-family: sans-serif" />
+                <div class="col-md-3">
+                    <label class="label_div">City:</label>
+                    <div class="input-group col-12">
+                        <input type="text" id="form.city" name="form.city" class="form-control" />
                     </div>
                 </div>
             </div>
-        </form>
+            <div class="row mt-3">
+                <div class="col-md-3">
+                    <label class="label_div">Telephone Number:</label>
+                    <div class="input-group col-12">
+                        <input type="tel" id="form.phone" name="form.phone" pattern="[0-9]{10}" class="form-control" />
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label class="label_div">Cell-Phone Number:</label>
+                    <div class="input-group col-12">
+                        <input type="tel" id="form.cell" name="form.cell" pattern="[0-9]{10}" class="form-control" />
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label class="label_div">Emergency Telephone Number:</label>
+                    <div class="input-group col-12">
+                        <input type="tel" id="form.emergency" name="form.emergency" pattern="[0-9]{10}" class="form-control" />
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label class="label_div">E-Mail:</label>
+                    <div class="input-group col-12">
+                        <input type="text" id="form.email" name="form.email" class="form-control" />
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-3">
+                    <label class="label_div">Starting Date:</label>
+                    <div class="input-group col-12">
+                        <input type="text" id="form.startingdate" name="form.startingdate" value="@DateTime.Now.ToString("MMMM dd, yyyy")" class="form-control" />
+                    </div>
+                </div>
+            </div>
+            <div id="studentsdiv" class="mt-3">
+                <div class="row">
+                    <div class="col text-right">
+                        <a href="javascript:void(0);" id="addStudent">Add Another Student</a>
+                    </div>
+                </div>
+                <div class="mt-3" id="studentrow" name="studentrow" style="border:2px solid black; padding:10px">
+                    <div class="row">
+                        <div class="col-12" style="text-align:center; font-family:sans-serif; font-size:18px">
+                            <label>Student</label>
+                        </div>
+                    </div>
+                    <div class="row mt-3" style="text-align:center">
+                        <div class="col-md-3">
+                            <div class="row">
+                                <div class="col-12">
+                                    <label class="label_div">First Name:</label>
+                                    <div class="input-group col-12">
+                                        <input type="text" id="form.students[0].Firstname" name="form.students[0].Firstname" class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-12">
+                                    <label class="label_div">Last Name:</label>
+                                    <div class="input-group col-12">
+                                        <input type="text" id="form.students[0].Lastname" name="form.students[0].Lastname" class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="label_div">Grade:</label>
+                            <div class="input-group col-12">
+                                <select id="form.students[0].grade" name="form.students[0].grade" size="1" class="form-control">
+                                    <option value="JK">JK</option>
+                                    <option value="SK">SK</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="label_div">Subjects</label>
+                            <div class="input-group col-12">
+                                <select id="form.students[0].subject" name="form.students[0].subject" class="form-control">
+                                    <option value="English">English</option>
+                                    <option value="French">French</option>
+                                    <option value="Math">Math</option>
+                                    <option value="Science">Science</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="label_div">Days</label>
+                            <div class="input-group col-12">
+                                <select id="form.students[0].days" name="form.students[0].days" class="form-control">
+                                    <option value="Sunday">Sunday</option>
+                                    <option value="Monday">Monday</option>
+                                    <option value="Tuesday">Tuesday</option>
+                                    <option value="Wednesday">Wednesday</option>
+                                    <option value="Thursday">Thursday</option>
+                                    <option value="Friday">Friday</option>
+                                    <option value="Saturday">Saturday</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-3">
+                            <label class="label_div">Start Time</label>
+                            <div class="input-group">
+                                <input type="time" id="form.students[0].starttime" name="form.students[0].starttime" min="16:00" max="21:00" value="16:00" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <label class="label_div">End Time</label>
+                            <div class="input-group">
+                                <input type="time" id="students[0].endtime" name="students[0].endtime" min="16:00" max="21:00" value="18:00" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-12" style="font-weight:bold; font-size: 14px; font-family: sans-serif">
+                    Tuition payments are due at the beginning of each month. THERE ARE NO CREDITS FOR STUDENT ABSCENCES.
+                    Therefore, there is no reduction in tuition for a missed lesson. Make up lessons may be avaliable at the discretion
+                    and avaliability of your teacher. Students wishing to discontinue lessons must notify our office at least one week
+                    before the next scheduled lesson. Lessons will be chargeed until notice is recieved. The same policy applies to
+                    lessons due to inclement weather.
+
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-4">
+                    <label class="label_div">Date:</label>
+                    <div class="input-group col-12">
+                        <input type="text" id="form.date" name="form.date" value="@DateTime.Now.ToString("MMMM dd, yyyy")" class="form-control" />
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <label class="label_div">Signature:</label>
+                    <div class="input-group col-12">
+                        <input type="text" id="form.signature" name="form.signature" class="form-control" />
+                    </div>
+                </div>
+            </div>
+            <div class="mt-3" style="border: 2px solid black; padding:5px">
+                <div class="row mt-2">
+                    <div class="col text-left" style="text-decoration:underline; font-family: sans-serif">
+                        Office Use Only
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-12">
+                        <label class="label_div">Fees:</label>
+                        <div class="input-group col-12">
+                            <input type="text" id="form.fees" name="form.fees" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-12">
+                        <label class="label_div">Payment Day:</label>
+                        <div class="input-group col-12">
+                            <input type="text" id="form.paymentday" name="form.paymentday" class="payment form-control">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-12 text-right">
+                    <input class="btn btn-success form-control" type="submit" value="Save" asp-page-handler="Submit" style="width:60px; font-family: sans-serif" />
+                </div>
+            </div>
+        </div>
+    </form>
+    <hr style="height:1px;border:none;color:#333;background-color:#333;">
+    <div class="row">
+        <div class="col-12" style="padding-left:10px; font-size: 14px; font-family: sans-serif; text-align:center">
+            1080 Tapscott Road #5 and #10, Scarbrough, ONT, M1X 1E7. Tel: 416-285-7775, Cell: 416-833-4141
+        </div>
     </div>
     <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
 </body>
-<div class="container">
-    <hr style="height:1px;border:none;color:#333;background-color:#333;">
-    <div class="row" style="padding-left:10px; font-size: 18px; font-family: sans-serif; text-align:center">
-        1080 Tapscott Road #5 and #10, Scarbrough, ONT, M1X 1E7. Tel: 416-285-7775, Cell: 416-833-4141
-    </div>
-</div>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
@@ -254,15 +253,19 @@
     var startDate = new Date(currYear, currMonth, 1);
     $(".payment").datepicker();
     $(".payment").datepicker("setDate", startDate);
+</script>
+<script>
     $(document).ready(function () {
         $Student = 1;
         $('#addStudent').click(function () {
-            $('#studentrow').clone().attr('id', 'studentrow' + $Student).appendTo('#students')
+            $('#studentrow').clone().attr('id', 'studentrow' + $Student).appendTo("#studentsdiv")
                 .find("*[id]")
                 .each(function () {
                     var id = this.id || "";
-                    $(this).attr("name", (name.substring(0, 13) + $Student + name.substring(14, name.length)));
-                    $(this).attr("id", (id.substring(0, 13) + $Student + id.substring(14, id.length)));
+                    if (id != "") {
+                        $(this).attr("name", (name.substring(0, 14) + $Student + name.substring(15, name.length)));
+                        $(this).attr("id", (id.substring(0, 14) + $Student + id.substring(15, id.length)))
+                    };
                 }).clone().end();
             $Student += 1;
         });

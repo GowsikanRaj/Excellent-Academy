@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Collections.Generic;
 
 namespace ExcellentAcademy.Pages
 {
@@ -10,12 +11,6 @@ namespace ExcellentAcademy.Pages
         }
         public IActionResult OnPostSubmit(Form form)
         {
-            foreach (var student in form.student)
-            {
-                var start = student.Starttime.ToString("h:mm");
-                var end = student.Endtime.ToString("h:mm");
-            }
-
             return RedirectToPage("./Success");
         }
 
