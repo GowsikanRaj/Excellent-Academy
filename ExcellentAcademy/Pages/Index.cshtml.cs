@@ -1,5 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 
 namespace ExcellentAcademy.Pages
@@ -9,10 +12,19 @@ namespace ExcellentAcademy.Pages
         public void OnGet()
         {
         }
-        public IActionResult OnPostSubmit(Form form)
+
+        private ExcellentAcademyContext _excellentAcademyContext;
+
+        public IndexModel (ExcellentAcademyContext excellentAcademyContext)
         {
-            return RedirectToPage("./Success");
+            _excellentAcademyContext = excellentAcademyContext;
         }
 
+        public IActionResult OnPostSubmit(Form form)
+        {
+            _excellentAcademyContext.Add(form);
+
+            return RedirectToPage("./Success");
+        }
     }
 }
