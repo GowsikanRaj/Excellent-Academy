@@ -20,9 +20,21 @@ namespace ExcellentAcademy.Pages
             _excellentAcademyContext = excellentAcademyContext;
         }
 
+        public Students students { get; set; }
         public IActionResult OnPostSubmit(Form form)
         {
-            _excellentAcademyContext.Add(form);
+            students = new Students();
+            foreach (student s in form.students)
+            {
+                students.FirstName = s.Firstname;
+                students.LastName = s.Lastname;
+                students.Grade = s.Grade;
+                students.Subject = s.Subject;
+                students.Days = s.Days;
+                students.Fees = form.fees;
+                _excellentAcademyContext.Add(students);
+                _excellentAcademyContext.SaveChanges();
+            }
 
             return RedirectToPage("./Success");
         }

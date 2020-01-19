@@ -13,11 +13,11 @@ namespace ExcellentAcademy
         {
         }
 
-        public DbSet<Form> Form { get; set; }
+        public DbSet<Students> Form { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Form>().ToTable("ExcellentAcademyStudents");
+            modelBuilder.Entity<Students>().ToTable("StudentsForExcellent");
         }
     }
 }
