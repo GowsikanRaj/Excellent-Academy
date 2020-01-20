@@ -15,7 +15,8 @@ namespace ExcellentAcademy
         public string Grade { get; set; }
         public string Subjects { get; set; }
         public string Days { get; set; }
-        public int Fees { get; set; }
+        public DateTime StartTime { get; set; }
+        public DateTime EndTime { get; set; }
 
     }
 }

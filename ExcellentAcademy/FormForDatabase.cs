@@ -19,6 +19,7 @@ namespace ExcellentAcademy
         public string Emergency { get; set; }
         public string Email { get; set; }
         public DateTime? StartingDate { get; set; }
+        public int Fees { get; set; }
         public DateTime? PaymentDay { get; set; }
     }
 }

@@ -151,25 +151,22 @@
                         <div class="col-md-2">
                             <label class="label_div">Subjects</label>
                             <div class="input-group col-12">
-                                <select id="form.students[0].subject" name="form.students[0].subject" class="form-control">
-                                    <option value="English">English</option>
-                                    <option value="French">French</option>
-                                    <option value="Math">Math</option>
-                                    <option value="Science">Science</option>
+                                <select id="subjects" name="subjects" multiple size="4">
+                                    @foreach (var subject in Model.Subjects)
+                                    {
+                                    <option value="@subject.SubjectName"> @subject.SubjectName</option>
+                                    }
                                 </select>
                             </div>
                         </div>
                         <div class="col-md-2">
                             <label class="label_div">Days</label>
                             <div class="input-group col-12">
-                                <select id="form.students[0].days" name="form.students[0].days" class="form-control">
-                                    <option value="Sunday">Sunday</option>
-                                    <option value="Monday">Monday</option>
-                                    <option value="Tuesday">Tuesday</option>
-                                    <option value="Wednesday">Wednesday</option>
-                                    <option value="Thursday">Thursday</option>
-                                    <option value="Friday">Friday</option>
-                                    <option value="Saturday">Saturday</option>
+                                <select id="days" name="days" multiple size="7">
+                                    @foreach (var day in Model.Days)
+                                    {
+                                        <option value="@day.DayName"> @day.DayName</option>
+                                    }
                                 </select>
                             </div>
                         </div>
@@ -184,7 +181,7 @@
                         <div class="col-md-3">
                             <label class="label_div">End Time</label>
                             <div class="input-group col-12">
-                                <input type="time" id="students[0].endtime" name="students[0].endtime" min="16:00" max="21:00" value="18:00" class="form-control" />
+                                <input type="time" id="form.students[0].endtime" name="form.students[0].endtime" min="16:00" max="21:00" value="18:00" class="form-control" />
                             </div>
                         </div>
                     </div>

@@ -4,25 +4,28 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace ExcellentAcademy.Pages
 {
     public class IndexModel : PageModel
     {
-        public void OnGet()
-        {
-        }
-
         private ExcellentAcademyContext _excellentAcademyContext;
-
-        public IndexModel (ExcellentAcademyContext excellentAcademyContext)
+        public IndexModel(ExcellentAcademyContext excellentAcademyContext)
         {
             _excellentAcademyContext = excellentAcademyContext;
+        }
+        public IEnumerable<Days> Days {get; set;}
+        public IEnumerable<Subjects> Subjects { get; set; }
+        public async Task OnGetAsync() 
+        {
+            Days = await _excellentAcademyContext.Days.ToListAsync();
+            Subjects = await _excellentAcademyContext.Subjects.ToListAsync();
         }
 
         public Students students { get; set; }
         public FormForDatabase Forms { get; set; }
-        public IActionResult OnPostSubmit(Form form)
+        public IActionResult OnPostSubmit(Form form, string[] days, string[] subjects)
         {
             Forms = new FormForDatabase
             {
@@ -35,7 +38,8 @@ namespace ExcellentAcademy.Pages
                 Phone = form.phone,
                 PaymentDay = Convert.ToDateTime(form.paymentday),
                 StartingDate = Convert.ToDateTime(form.startingdate),
-                Email = form.email
+                Email = form.email,
+                Fees = form.fees
             };
             _excellentAcademyContext.Add(Forms);
 
@@ -46,9 +50,24 @@ namespace ExcellentAcademy.Pages
                 students.FirstName = s.Firstname;
                 students.LastName = s.Lastname;
                 students.Grade = s.Grade;
-                students.Subjects = s.Subject;
-                students.Days = s.Days;
-                students.Fees = form.fees;
+                students.StartTime = Convert.ToDateTime(s.Starttime);
+                students.EndTime = Convert.ToDateTime(s.Endtime);
+                if (subjects.Length > 0)
+                {
+                    foreach (var subject in subjects)
+                    {
+                        students.Subjects += subject + ",";
+                    }
+                    students.Subjects = students.Subjects.Substring(0, students.Subjects.Length - 1);
+                }
+                if (days.Length > 0)
+                {
+                    foreach (var day in days)
+                    {
+                        students.Days += day + ",";
+                    }
+                    students.Days = students.Days.Substring(0, students.Days.Length - 1);
+                }                  
                 _excellentAcademyContext.Add(students);
             }
 
