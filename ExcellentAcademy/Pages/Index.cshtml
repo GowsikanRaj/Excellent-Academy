@@ -13,7 +13,7 @@
         font-family: sans-serif;
         color: black;
         font-size: 14px;
-        padding:0px 2px;
+        padding: 0px 2px;
     }
 
     .table > tbody > tr > td {
@@ -151,10 +151,10 @@
                         <div class="col-md-2">
                             <label class="label_div">Subjects</label>
                             <div class="input-group col-12">
-                                <select id="subjects" name="subjects" multiple size="4">
+                                <select id="form.students[0].subject" name="form.students[0].subject" multiple size="4">
                                     @foreach (var subject in Model.Subjects)
                                     {
-                                    <option value="@subject.SubjectName"> @subject.SubjectName</option>
+                                        <option value="@subject.SubjectName"> @subject.SubjectName</option>
                                     }
                                 </select>
                             </div>
@@ -162,7 +162,7 @@
                         <div class="col-md-2">
                             <label class="label_div">Days</label>
                             <div class="input-group col-12">
-                                <select id="days" name="days" multiple size="7">
+                                <select id="form.students[0].days" name="form.students[0].days" multiple size="7">
                                     @foreach (var day in Model.Days)
                                     {
                                         <option value="@day.DayName"> @day.DayName</option>
@@ -175,13 +175,13 @@
                         <div class="col-md-3">
                             <label class="label_div">Start Time</label>
                             <div class="input-group col-12">
-                                <input type="time" id="form.students[0].starttime" name="form.students[0].starttime" min="16:00" max="21:00" value="16:00" class="form-control" />
+                                <input type="time" id="form.students[0].starttime" name="form.students[0].starttime" min="10:00" max="21:00" value="16:00" class="form-control" />
                             </div>
                         </div>
                         <div class="col-md-3">
                             <label class="label_div">End Time</label>
                             <div class="input-group col-12">
-                                <input type="time" id="form.students[0].endtime" name="form.students[0].endtime" min="16:00" max="21:00" value="18:00" class="form-control" />
+                                <input type="time" id="form.students[0].endtime" name="form.students[0].endtime" min="10:00" max="21:00" value="18:00" class="form-control" />
                             </div>
                         </div>
                     </div>
@@ -229,7 +229,7 @@
                     <div class="col-12">
                         <label class="label_div">Payment Day:</label>
                         <div class="input-group col-12">
-                            <input type="text" id="form.paymentday" name="form.paymentday" class="payment form-control">
+                            <input type="text" id="form.paymentday" name="form.paymentday" value="@DateTime.Now.ToString("MMMM dd, yyyy")" class="payment form-control">
                         </div>
                     </div>
                 </div>
@@ -256,17 +256,6 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script>
-    var d = new Date();
-    const monthNames = ["January", "February", "March", "April", "May", "June",
-        "July", "August", "September", "October", "November", "December"
-    ];
-    var currMonth = d.getMonth();
-    var currYear = d.getFullYear();
-    var startDate = new Date(currYear, currMonth, 1);
-    $(".payment").datepicker();
-    $(".payment").datepicker("setDate", startDate);
-</script>
-<script>
     $(document).ready(function () {
         $Student = 1;
         $('#addStudent').click(function () {
@@ -281,5 +270,10 @@
                 }).clone().end();
             $Student += 1;
         });
+    });
+    $('option').mousedown(function (e) {
+        e.preventDefault();
+        $(this).prop('selected', !$(this).prop('selected'));
+        return false;
     });
 </script>
