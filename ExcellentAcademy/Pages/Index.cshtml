@@ -151,8 +151,8 @@
                         <div class="col-md-2">
                             <label class="label_div">Subjects</label>
                             <div class="input-group col-12">
-                                <select id="form.students[0].subject" name="form.students[0].subject" multiple size="4">
-                                    @foreach (var subject in Model.Subjects)
+                                <select id="form.students[0].subject" name="form.students[0].subject" multiple size="7" style="overflow:hidden">
+                                    @foreach (var subject in Model.Subjects.OrderBy(p => p.SubjectName))
                                     {
                                         <option value="@subject.SubjectName"> @subject.SubjectName</option>
                                     }
@@ -162,7 +162,7 @@
                         <div class="col-md-2">
                             <label class="label_div">Days</label>
                             <div class="input-group col-12">
-                                <select id="form.students[0].days" name="form.students[0].days" multiple size="7">
+                                <select id="form.students[0].days" name="form.students[0].days" multiple size="7" style="overflow:hidden">
                                     @foreach (var day in Model.Days)
                                     {
                                         <option value="@day.DayName"> @day.DayName</option>

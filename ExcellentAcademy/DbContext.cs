@@ -17,6 +17,7 @@ namespace ExcellentAcademy
         public DbSet<FormForDatabase> FormForDatabases { get; set; }
         public DbSet<Days> Days { get; set; }
         public DbSet<Subjects> Subjects { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Students>().ToTable("Student");

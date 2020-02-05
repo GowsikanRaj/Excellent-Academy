@@ -16,6 +16,7 @@ namespace ExcellentAcademy.Pages
         }
         public IEnumerable<Days> Days {get; set;}
         public IEnumerable<Subjects> Subjects { get; set; }
+
         public async Task OnGetAsync() 
         {
             Days = await _excellentAcademyContext.Days.ToListAsync();
@@ -24,6 +25,7 @@ namespace ExcellentAcademy.Pages
 
         public Students students { get; set; }
         public FormForDatabase Forms { get; set; }
+
         public IActionResult OnPostSubmit(Form form)
         {
             Forms = new FormForDatabase
